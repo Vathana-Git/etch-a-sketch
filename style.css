@@ -92,7 +92,8 @@ body {
   user-select: none;
 }
 
-#clear-button:active {
+#clear-button:active,
+.toggle-active {
   border-color: yellow;
   color: yellow;
 }

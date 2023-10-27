@@ -59,33 +59,58 @@ function createGrid(squaresPerSide = 16) {
 
 }
 
+function toggleActiveButton(e) {
+
+  let buttons = document.querySelectorAll(".toggle-button");
+
+  buttons.forEach((button) => {
+    if (button != e.target) {
+      button.classList.remove("toggle-active");
+    }
+  });
+
+  e.target.classList.add("toggle-active");
+
+}
+
+function addEvents() {
+
+  let gridSizeInput = document.querySelector("#grid-size-slider");
+
+  gridSizeInput.addEventListener("input", (e) => {
+  
+    let gridSizeLabel = document.querySelector("#grid-size-label");
+    let gridSize = e.target.value;
+    gridSizeLabel.textContent = gridSize + "x" + gridSize;
+  
+    document.querySelector(".grid-container").remove();
+  
+    createGrid(gridSize);
+  
+  });
+  
+  let clearButton = document.querySelector("#clear-button");
+  
+  clearButton.addEventListener("click", () => {
+  
+    document.querySelector(".grid-container").remove();
+    
+    let gridSize = document.querySelector("#grid-size-slider").value;
+  
+    createGrid(gridSize);
+  
+  });
+  
+  let buttons = document.querySelectorAll(".toggle-button");
+  buttons.forEach((button) => {
+    button.addEventListener("click", toggleActiveButton)
+  });
+
+}
+
 const GRIDSIZE = 660;
 let isDown;
 
+addEvents();
+
 createGrid();
-
-let gridSizeInput = document.querySelector("#grid-size-slider");
-
-gridSizeInput.addEventListener("input", (e) => {
-
-  let gridSizeLabel = document.querySelector("#grid-size-label");
-  let gridSize = e.target.value;
-  gridSizeLabel.textContent = gridSize + "x" + gridSize;
-
-  document.querySelector(".grid-container").remove();
-
-  createGrid(gridSize);
-
-});
-
-let clearButton = document.querySelector("#clear-button");
-
-clearButton.addEventListener("click", () => {
-
-  document.querySelector(".grid-container").remove();
-  
-  let gridSize = document.querySelector("#grid-size-slider").value;
-
-  createGrid(gridSize);
-
-});
