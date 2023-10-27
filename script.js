@@ -1,7 +1,26 @@
+function getRandomRGB() {
+
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+
+  return `rgb(${r}, ${g}, ${b})`;
+
+}
+
 function colorSquare(e) {
 
-  if (e.type === "mousedown" || isDown) {
-    e.target.style.backgroundColor = color;
+  if (e.type === "mousedown" || isSketching) {
+
+    if (isRainbow) {
+
+      e.target.style.backgroundColor = getRandomRGB();
+
+    } else {
+
+      e.target.style.backgroundColor = color;
+
+    } 
   }
 
 }
@@ -30,12 +49,12 @@ function createGrid(squaresPerSide = 16) {
   gridContainer.classList.add("grid-container")
 
   gridContainer.addEventListener("mousedown", (e) => {
-    isDown = true;
+    isSketching = true;
     e.preventDefault();
   });
 
   gridContainer.addEventListener("mouseup", () => {
-    isDown = false;
+    isSketching = false;
   });  
 
   let rowContainer;
@@ -73,6 +92,12 @@ function toggleActiveButton(e) {
     document.querySelector("#color-button").classList.add("toggle-active");
   } else {
     e.target.classList.add("toggle-active");
+  }
+
+  if (e.target.id === "rgb-button") {
+    isRainbow = true;
+  } else {
+    isRainbow = false;
   }
 
 }
@@ -129,7 +154,7 @@ function addEvents() {
 
 const GRIDSIZE = 660;
 let color = "#000000";
-let isDown;
+let isSketching, isRainbow;
 
 addEvents();
 
