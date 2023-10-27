@@ -77,3 +77,15 @@ gridSizeInput.addEventListener("input", (e) => {
   createGrid(gridSize);
 
 });
+
+let clearButton = document.querySelector("#clear-button");
+
+clearButton.addEventListener("click", () => {
+
+  document.querySelector(".grid-container").remove();
+  
+  let gridSize = document.querySelector("#grid-size-slider").value;
+
+  createGrid(gridSize);
+
+});

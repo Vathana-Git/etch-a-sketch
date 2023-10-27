@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
 }
 
 body {
@@ -90,4 +90,9 @@ body {
   justify-content: center;
   padding: 1rem;
   user-select: none;
+}
+
+#clear-button:active {
+  border-color: yellow;
+  color: yellow;
 }
