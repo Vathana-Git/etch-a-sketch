@@ -53,6 +53,8 @@ body {
   margin-right: 100px;
   display: flex;
   flex-direction: column;
+  padding: 36px 0;
+  gap: 36px;
 }
 
 .control-panel-header {
@@ -61,7 +63,6 @@ body {
   color: white;
   display: flex;
   align-items: center;
-  margin: 36px 0;
 }
 
 .control-panel-content {
@@ -69,7 +70,7 @@ body {
   height: 700px;
   display: flex;
   flex-direction: column;
-  gap: 36px;
+  gap: 25px;
 
 }
 
