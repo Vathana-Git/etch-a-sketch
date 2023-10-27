@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -74,8 +75,9 @@ body {
 
 }
 
-.control-panel-content > div{
+.control-panel-content > div, button{
   color: white;
+  background-color: transparent;
   width: 260px;
   min-height: 40px;
   border: 2px solid white;
