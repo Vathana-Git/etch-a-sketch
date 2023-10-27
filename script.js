@@ -1,4 +1,4 @@
-function colorSquare(e, color = "black") {
+function colorSquare(e) {
 
   if (e.type === "mousedown" || isDown) {
     e.target.style.backgroundColor = color;
@@ -69,7 +69,11 @@ function toggleActiveButton(e) {
     }
   });
 
-  e.target.classList.add("toggle-active");
+  if (e.target.id === "color-picker") {
+    document.querySelector("#color-button").classList.add("toggle-active");
+  } else {
+    e.target.classList.add("toggle-active");
+  }
 
 }
 
@@ -106,9 +110,25 @@ function addEvents() {
     button.addEventListener("click", toggleActiveButton)
   });
 
+  let colorPicker = document.querySelector("#color-picker");
+  colorPicker.addEventListener("input", (e) => {
+    color = e.target.value;
+  });
+
+  let colorButton = document.querySelector("#color-button");
+  colorButton.addEventListener("click", () => {
+    color = colorPicker.value;
+  });
+
+  let eraserButton = document.querySelector("#eraser-button");
+  eraserButton.addEventListener("click", () => {
+    color = "#ffffff";
+  });
+
 }
 
 const GRIDSIZE = 660;
+let color = "#000000";
 let isDown;
 
 addEvents();

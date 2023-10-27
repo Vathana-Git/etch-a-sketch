@@ -97,3 +97,14 @@ body {
   border-color: yellow;
   color: yellow;
 }
+
+#color-button {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+}
+
+#color-picker {
+  width: 60px;
+  border: 1px solid white;
+}
