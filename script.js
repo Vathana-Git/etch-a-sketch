@@ -41,7 +41,7 @@ function createSquare(squareSize) {
 
 }
 
-function createGrid(squaresPerSide = 16) {
+function createGrid(squaresPerSide = 32) {
 
   const squareSize = GRIDSIZE / squaresPerSide + "px";
 
